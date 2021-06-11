@@ -15,4 +15,15 @@
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
         <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
     </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.guozheng.kotlin</groupId>
+            <artifactId>domain-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.guozheng.kotlin</groupId>
+            <artifactId>domain-services</artifactId>
+        </dependency>
+    </dependencies>
 </project>

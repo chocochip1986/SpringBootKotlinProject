@@ -8,5 +8,10 @@ import lombok.NoArgsConstructor
 @NoArgsConstructor
 @Builder
 class Animal(
-    var id: Long?,
-    var name: String?)
+    var id: Long? = null,
+    var name: String? = null) {
+    constructor(name: String?) : this() {
+        this.id = null
+        this.name = name
+    }
+}

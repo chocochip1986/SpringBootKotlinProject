@@ -43,6 +43,10 @@
         </dependency>
         <dependency>
             <groupId>com.guozheng.kotlin</groupId>
+            <artifactId>domain-services</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.guozheng.kotlin</groupId>
             <artifactId>infra-controller</artifactId>
         </dependency>
         <dependency>
