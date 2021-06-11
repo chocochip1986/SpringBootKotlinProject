@@ -10,7 +10,7 @@ class AnimalMapper {
         }
 
         fun mapModelToEntity(animal: Animal): AnimalEntity {
-            return AnimalEntity(animal.name, animal.createdAt, animal.updatedAt, animal.id)
+            return AnimalEntity(animal.name, animal.createdAt, animal.updatedAt, animal.deletedAt, animal.id)
         }
     }
 }

@@ -30,4 +30,11 @@ class SimpleRestController(@Autowired private val animalService: AnimalService) 
         animal = animalService.update(animal) ?: return ResponseEntity("No update occured!", HttpStatus.OK)
         return ResponseEntity.ok(animal.name)
     }
+
+    @DeleteMapping("/v1/api/delete/animal")
+    fun delete(@RequestBody animalUpdateDto: AnimalUpdateDto): ResponseEntity<String> {
+        val animal = Animal(animalUpdateDto.id, animalUpdateDto.name)
+        animalService.delete(animal)
+        return ResponseEntity.ok("DELETED")
+    }
 }

@@ -6,4 +6,6 @@ interface IAnimalRepo {
     fun findById(id: Long): Animal?
 
     fun save(animal: Animal): Animal
+
+    fun delete(animal: Animal)
 }

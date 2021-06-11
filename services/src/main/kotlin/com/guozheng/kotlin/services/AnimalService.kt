@@ -4,6 +4,7 @@ import com.guozheng.kotlin.domain.model.entities.Animal
 import com.guozheng.kotlin.domain.services.IAnimalRepo
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import java.time.LocalDateTime
 
 @Service
 class AnimalService(
@@ -23,5 +24,13 @@ class AnimalService(
 
         existingAnimal.name = animal.name
         return iAnimalRepo.save(existingAnimal)
+    }
+
+    fun delete(animal: Animal) {
+        val id: Long = animal.id ?: return
+        var existingAnimal = iAnimalRepo.findById(id) ?: return
+
+        existingAnimal.deletedAt = LocalDateTime.now()
+        iAnimalRepo.save(existingAnimal)
     }
 }

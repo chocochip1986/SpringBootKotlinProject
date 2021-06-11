@@ -18,5 +18,6 @@ class PersonEntity(
     @Column var name: String?,
     createdAt: LocalDateTime?,
     updatedAt: LocalDateTime?,
+    deletedAt: LocalDateTime?,
     id: Long?
-) : BaseEntity(id, createdAt, updatedAt)
+) : BaseEntity(id, createdAt, updatedAt, deletedAt)

@@ -23,4 +23,9 @@ class AnimalJpaRepoImpl(
         val savedEntity: AnimalEntity = animalEntityJpaRepository.save(entity)
         return AnimalMapper.mapEntityToModel(savedEntity)
     }
+
+    override fun delete(animal: Animal) {
+        val entity: AnimalEntity = AnimalMapper.mapModelToEntity(animal)
+        animalEntityJpaRepository.delete(entity)
+    }
 }
