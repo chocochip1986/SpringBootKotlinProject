@@ -9,17 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>infra-controller</artifactId>
+    <artifactId>services</artifactId>
 
     <build>
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
         <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.guozheng.kotlin</groupId>
-            <artifactId>services</artifactId>
-        </dependency>
-    </dependencies>
 </project>

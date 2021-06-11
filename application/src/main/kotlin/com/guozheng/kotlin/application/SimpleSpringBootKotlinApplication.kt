@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
     scanBasePackages =
     ["com.guozheng.kotlin.application",
         "com.guozheng.kotlin.domain.model",
+        "com.guozheng.kotlin.services",
         "com.guozheng.kotlin.infra.jpa",
         "com.guozheng.kotlin.infra.controller"]
 )
