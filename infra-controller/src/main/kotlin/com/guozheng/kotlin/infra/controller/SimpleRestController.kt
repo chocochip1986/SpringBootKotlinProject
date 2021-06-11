@@ -2,6 +2,7 @@ package com.guozheng.kotlin.infra.controller
 
 import com.guozheng.kotlin.domain.model.entities.Animal
 import com.guozheng.kotlin.infra.controller.dtos.AnimalDto
+import com.guozheng.kotlin.infra.controller.dtos.AnimalUpdateDto
 import com.guozheng.kotlin.services.AnimalService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -21,5 +22,12 @@ class SimpleRestController(@Autowired private val animalService: AnimalService) 
     fun get(@PathVariable("id") id: Long): ResponseEntity<String> {
         val animal: Animal = animalService.findById(id) ?: return ResponseEntity("No Animal found!", HttpStatus.OK)
         return ResponseEntity.ok(animal.toString());
+    }
+
+    @PutMapping("/v1/api/update/animal")
+    fun update(@RequestBody animalUpdateDto: AnimalUpdateDto): ResponseEntity<String> {
+        var animal = Animal(animalUpdateDto.id, animalUpdateDto.name)
+        animal = animalService.update(animal) ?: return ResponseEntity("No update occured!", HttpStatus.OK)
+        return ResponseEntity.ok(animal.name)
     }
 }

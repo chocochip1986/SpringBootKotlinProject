@@ -17,4 +17,6 @@ class Animal(
         this.id = null
         this.name = name
     }
+
+    constructor(id: Long?, name: String?) : this(id, name, null, null)
 }

@@ -16,4 +16,12 @@ class AnimalService(
     fun save(animal: Animal): Animal {
         return iAnimalRepo.save(animal)
     }
+
+    fun update(animal: Animal): Animal? {
+        val id: Long = animal.id ?: return null
+        var existingAnimal = iAnimalRepo.findById(id) ?: return null
+
+        existingAnimal.name = animal.name
+        return iAnimalRepo.save(existingAnimal)
+    }
 }
