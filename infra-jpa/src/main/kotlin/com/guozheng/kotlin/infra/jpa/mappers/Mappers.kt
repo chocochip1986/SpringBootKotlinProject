@@ -6,11 +6,11 @@ import com.guozheng.kotlin.infra.jpa.entities.AnimalEntity
 class AnimalMapper {
     companion object {
         fun mapEntityToModel(animalEntity: AnimalEntity): Animal {
-            return Animal(animalEntity.id, animalEntity.name)
+            return Animal(animalEntity.id, animalEntity.name, animalEntity.createdAt, animalEntity.updatedAt)
         }
 
         fun mapModelToEntity(animal: Animal): AnimalEntity {
-            return AnimalEntity(animal.id, animal.name)
+            return AnimalEntity(animal.name, animal.createdAt, animal.updatedAt, animal.id)
         }
     }
 }

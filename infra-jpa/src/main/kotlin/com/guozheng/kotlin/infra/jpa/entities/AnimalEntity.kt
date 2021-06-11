@@ -3,16 +3,20 @@ package com.guozheng.kotlin.infra.jpa.entities
 import lombok.Builder
 import lombok.Data
 import lombok.NoArgsConstructor
+import org.hibernate.envers.Audited
+import org.springframework.data.jpa.domain.support.AuditingEntityListener
+import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
 @Builder
 @Data
 @NoArgsConstructor
-class AnimalEntity(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long?,
-    @Column
-    var name: String?
-)
+@Audited
+@EntityListeners(AuditingEntityListener::class)
+class AnimalEntity (
+    @Column var name: String?,
+    createdAt: LocalDateTime?,
+    updatedAt: LocalDateTime?,
+    id: Long?
+) : BaseEntity(id, createdAt, updatedAt)
