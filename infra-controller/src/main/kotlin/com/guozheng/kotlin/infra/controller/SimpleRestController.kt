@@ -1,5 +1,6 @@
 package com.guozheng.kotlin.infra.controller
 
+import com.google.gson.Gson
 import com.guozheng.kotlin.domain.model.entities.Animal
 import com.guozheng.kotlin.infra.controller.dtos.AnimalDto
 import com.guozheng.kotlin.infra.controller.dtos.AnimalUpdateDto
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
+@RequestMapping(consumes = ["application/json"])
 class SimpleRestController(@Autowired private val animalService: AnimalService) {
     @PostMapping("/v1/api/create/animal")
     fun create(@RequestBody animalDto: AnimalDto): ResponseEntity<String> {
@@ -22,6 +24,13 @@ class SimpleRestController(@Autowired private val animalService: AnimalService) 
     fun get(@PathVariable("id") id: Long): ResponseEntity<String> {
         val animal: Animal = animalService.findById(id) ?: return ResponseEntity("No Animal found!", HttpStatus.OK)
         return ResponseEntity.ok(animal.toString());
+    }
+
+    @GetMapping("/v1/api/findall/animals")
+    fun getAll(): ResponseEntity<String> {
+        val animal: List<Animal> = animalService.findAll() ?: return ResponseEntity.ok("No animals found!")
+        var gson = Gson()
+        return ResponseEntity.ok(gson.toJson(animal))
     }
 
     @PutMapping("/v1/api/update/animal")

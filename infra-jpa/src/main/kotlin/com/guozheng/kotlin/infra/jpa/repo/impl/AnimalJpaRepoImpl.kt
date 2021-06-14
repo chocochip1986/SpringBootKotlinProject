@@ -7,6 +7,7 @@ import com.guozheng.kotlin.infra.jpa.mappers.AnimalMapper
 import com.guozheng.kotlin.infra.jpa.repositories.AnimalEntityJpaRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Repository
+import java.util.stream.Collectors
 
 @Repository
 class AnimalJpaRepoImpl(
@@ -16,6 +17,13 @@ class AnimalJpaRepoImpl(
         val entity: AnimalEntity = animalEntityJpaRepository.findById(id).orElse(null) ?: return null;
         val animal: Animal = AnimalMapper.mapEntityToModel(entity);
         return animal;
+    }
+
+    override fun findAll(): List<Animal>? {
+        val entities: List<AnimalEntity> = animalEntityJpaRepository.findAll()
+        val animals: List<Animal> = entities.stream().filter{ it != null }.map{ AnimalMapper.mapEntityToModel(it) }.collect(
+            Collectors.toUnmodifiableList())
+        return animals
     }
 
     override fun save(animal: Animal): Animal {

@@ -14,6 +14,10 @@ class AnimalService(
         return iAnimalRepo.findById(id)
     }
 
+    fun findAll(): List<Animal>? {
+        return iAnimalRepo.findAll()
+    }
+
     fun save(animal: Animal): Animal {
         return iAnimalRepo.save(animal)
     }
