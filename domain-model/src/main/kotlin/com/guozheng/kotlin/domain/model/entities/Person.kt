@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 
 @Data
 @NoArgsConstructor
-class Animal(
+class Person(
     var id: Long? = null,
     var name: String? = null,
     var createdAt: LocalDateTime? = null,
