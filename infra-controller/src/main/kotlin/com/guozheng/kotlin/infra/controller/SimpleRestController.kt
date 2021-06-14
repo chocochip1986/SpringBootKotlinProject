@@ -3,6 +3,7 @@ package com.guozheng.kotlin.infra.controller
 import com.google.gson.Gson
 import com.guozheng.kotlin.domain.model.entities.Animal
 import com.guozheng.kotlin.infra.controller.dtos.AnimalDto
+import com.guozheng.kotlin.infra.controller.dtos.AnimalDtos
 import com.guozheng.kotlin.infra.controller.dtos.AnimalUpdateDto
 import com.guozheng.kotlin.services.AnimalService
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,6 +19,14 @@ class SimpleRestController(@Autowired private val animalService: AnimalService) 
         var animal = Animal(animalDto.name)
         animal = animalService.save(animal)
         return ResponseEntity.ok("CREATED "+animal.name)
+    }
+
+    @PostMapping("/v1/api/create/animals")
+    fun create(@RequestBody animalDtos: AnimalDtos): ResponseEntity<String> {
+        var animals = animalDtos.dtos.mapNotNull { Animal(it.name) }
+        animals = animalService.saveAll(animals) ?: return ResponseEntity.ok("Nothing created!")
+        val gson = Gson()
+        return ResponseEntity.ok("Created "+ gson.toJson(animals))
     }
 
     @GetMapping("/v1/api/find/animal/{id}")

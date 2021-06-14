@@ -37,4 +37,8 @@ class AnimalService(
         existingAnimal.deletedAt = LocalDateTime.now()
         iAnimalRepo.save(existingAnimal)
     }
+
+    fun saveAll(animals: List<Animal>): List<Animal>? {
+        return iAnimalRepo.saveAll(animals)
+    }
 }

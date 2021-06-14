@@ -10,4 +10,6 @@ interface IAnimalRepo {
     fun save(animal: Animal): Animal
 
     fun delete(animal: Animal)
+
+    fun saveAll(animals: List<Animal>): List<Animal>?
 }
