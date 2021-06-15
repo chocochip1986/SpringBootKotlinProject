@@ -51,6 +51,10 @@
         </dependency>
         <dependency>
             <groupId>com.guozheng.kotlin</groupId>
+            <artifactId>infra-kafka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.guozheng.kotlin</groupId>
             <artifactId>services</artifactId>
         </dependency>
     </dependencies>
