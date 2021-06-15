@@ -19,6 +19,8 @@ import javax.persistence.*
 @Table(name = "persons")
 class PersonEntity(
     @Column var name: String?,
+    var nationality: String? = null,
+    var deathDate: LocalDateTime? = null,
     createdAt: LocalDateTime?,
     updatedAt: LocalDateTime?,
     deletedAt: LocalDateTime?,
