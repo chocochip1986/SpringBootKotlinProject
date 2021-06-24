@@ -20,11 +20,11 @@ class AnimalMapper {
 class PersonMapper {
     companion object {
         fun mapEntityToModel(personEntity: PersonEntity): Person {
-            return Person(personEntity.id, personEntity.name, personEntity.nationality, personEntity.deathDate, personEntity.createdAt, personEntity.updatedAt, personEntity.deletedAt)
+            return Person(personEntity.id, personEntity.name, personEntity.nationality, personEntity.deathDate, personEntity.birthDate, personEntity.income, personEntity.createdAt, personEntity.updatedAt, personEntity.deletedAt)
         }
 
         fun mapModelToEntity(person: Person): PersonEntity {
-            return PersonEntity(person.name, person.nationality, person.deathDate, person.createdAt, person.updatedAt, person.deletedAt, person.id)
+            return PersonEntity(person.name, person.nationality, person.deathDate, person.birthDate, person.income, person.createdAt, person.updatedAt, person.deletedAt, person.id)
         }
     }
 }

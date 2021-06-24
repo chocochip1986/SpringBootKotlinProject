@@ -21,6 +21,8 @@ class PersonEntity(
     @Column var name: String?,
     var nationality: String? = null,
     var deathDate: LocalDateTime? = null,
+    var birthDate: LocalDateTime? = null,
+    var income: Double? = null,
     createdAt: LocalDateTime?,
     updatedAt: LocalDateTime?,
     deletedAt: LocalDateTime?,

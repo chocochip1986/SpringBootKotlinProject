@@ -16,7 +16,7 @@ class SimpleRule<C>(
     }
 
     override fun evaluate(c: C): Boolean {
-        return this.evaluate(c)
+        return this.condition.evaluate(c)
     }
 
     override fun getRuleName(): String {

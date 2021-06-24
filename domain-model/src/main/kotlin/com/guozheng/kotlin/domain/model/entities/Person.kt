@@ -11,6 +11,8 @@ class Person(
     var name: String? = null,
     var nationality: String? = null,
     var deathDate: LocalDateTime? = null,
+    var birthDate: LocalDateTime? = null,
+    var income: Double? = null,
     var createdAt: LocalDateTime? = null,
     var updatedAt: LocalDateTime? = null,
     var deletedAt: LocalDateTime? = null) {

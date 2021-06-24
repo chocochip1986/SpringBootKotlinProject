@@ -8,7 +8,7 @@ import java.time.LocalDateTime
 
 @Service
 class AnimalService(
-    @Autowired private val iAnimalRepo: IAnimalRepo) {
+    private val iAnimalRepo: IAnimalRepo) {
 
     fun findById(id: Long): Animal? {
         return iAnimalRepo.findById(id)
